@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E231B588-4EB2-AC95-C79C-BB0E86D15466" name="Source">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:54:55 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SourceID" id="1F0EE8C0-4FCE-044E-473C-32EA974BFABA">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:07:03 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SourceName" id="FFA96399-0707-7F19-8D1E-C4376FC09F17">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:07:03 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SourceType" id="1B1F54B2-CDB1-B7D7-2158-DF1C1242F253">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:07:03 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="27B31BDB-1CCD-BC47-D939-6F24A6CC3FDC" name="Source_PK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:07:03 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1F0EE8C0-4FCE-044E-473C-32EA974BFABA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

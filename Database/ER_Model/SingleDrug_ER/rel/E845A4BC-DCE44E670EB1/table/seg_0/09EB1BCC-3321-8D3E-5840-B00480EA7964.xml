@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="09EB1BCC-3321-8D3E-5840-B00480EA7964" name="DoseQuantity">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:02:08 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DoseQuantityID" id="5BADD319-1CAD-A416-8D3B-1559AD27114E">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:04:12 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DoseQuantity" id="507C6E96-8494-4960-ED14-AD754048D7FF">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:04:12 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QuantityUnit" id="E83E8B39-9CB3-AA6E-656F-B76C3A8177D7">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:04:12 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7BE89CE1-36AE-9F11-9D06-482C42621024" name="DoseQuantity_PK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:04:12 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5BADD319-1CAD-A416-8D3B-1559AD27114E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

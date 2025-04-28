@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="33BDE029-B94C-95BB-2821-D256A6F3D740" mainViewID="A5E6847D-4FF6-934D-1EDF-E690E66084B3">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:54:05 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

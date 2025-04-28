@@ -1,0 +1,185 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EBC01DB8-D9A4-FE6D-A89F-BC688469A617" name="SingleDrugFormulations">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:55:49 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DrugID" id="0A31F1CE-B083-E684-2560-B9310186E08A">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:57:58 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OriginalName" id="0AC11B32-CCFC-BD50-48B0-C153E946576A">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:57:10 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VernacularNames" id="FCB299EE-3DDE-F2BD-1AD4-4E64FC0CCEB2">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:59:11 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Temparament_TemperamentID" id="48E9BA3E-72CD-DB7A-B6A5-28B9CC35B8C2">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:10:59 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="826986BF-8E41-56F2-E073-87F36586C8DD" referredColumn="528FF0F1-C1DA-3E04-AD16-558FCE95B414"/>
+</associations>
+</Column>
+<Column name="Uses_UsesID" id="F24CCA83-4E3F-F90A-AB64-0C2DAFBAEF68">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:11:27 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F791B52D-88EB-EE30-7203-4F540EA4E97A" referredColumn="C480BBDE-F504-D0B8-A746-DD810D8F174B"/>
+</associations>
+</Column>
+<Column name="Actions_ActionID" id="45E57493-CC8D-55EF-31A0-A5CAA487660D">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:11:38 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0E8BA6E5-AE8A-D650-EC21-909BA5721C8D" referredColumn="F1C21D6C-EAC7-0323-7C70-3ACA508F23FE"/>
+</associations>
+</Column>
+<Column name="Root_Components_Root_ComID" id="B0181054-9679-476C-01A0-FC6830FCFC41">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:11:52 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="09E71BC6-5747-38A4-12D9-CAD7D827609A" referredColumn="FD3BB5B2-90FD-449E-D992-AB48025293DA"/>
+</associations>
+</Column>
+<Column name="TotalAvailableConstituents_ConstituentID" id="BE0904EB-1662-F93D-8A53-4762298CF7D4">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:15:30 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0613A404-8F15-697B-F974-D3BA7EF02728" referredColumn="B94876DB-E93F-6FC0-E3DB-B24DA12E6491"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="69CF0739-B398-17D6-7D89-36FC663BC5E6" name="SingleDrugFormulations_PK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:59:11 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A31F1CE-B083-E684-2560-B9310186E08A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="364909C7-817E-076A-DD47-14C9542E24F5" name="SingleDrugFormulations_Temparament_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:10:59 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="48E9BA3E-72CD-DB7A-B6A5-28B9CC35B8C2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BA4CBF67-EED2-031E-3B35-F94D825B191B" name="SingleDrugFormulations_Uses_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:11:27 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F24CCA83-4E3F-F90A-AB64-0C2DAFBAEF68"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C88A68C5-B099-D748-9307-1EBA29F59C8F" name="SingleDrugFormulations_Actions_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:11:38 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45E57493-CC8D-55EF-31A0-A5CAA487660D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7E09990A-EC00-5FBB-5093-B2125E5B30B5" name="SingleDrugFormulations_RootComponents_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:11:52 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B0181054-9679-476C-01A0-FC6830FCFC41"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B339C490-1487-90B4-9BC6-47B607CD7A9C" name="SingleDrugFormulations_TotalAvailableConstituents_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:15:30 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE0904EB-1662-F93D-8A53-4762298CF7D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

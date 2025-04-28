@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="12BE9188-1141-AFE6-992D-F4F233CCCC67" name="TotalAvailableConstituents">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:55:10 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ConstituentID" id="B94876DB-E93F-6FC0-E3DB-B24DA12E6491">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:04:11 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ConstituentName" id="9FC798C5-8C4E-3150-3E72-FCC30B0CDC67">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:04:11 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="69E083DC-53A3-B805-5BBF-8587A64ADC1E" name="TotalAvailableConstituents_PK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:04:11 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B94876DB-E93F-6FC0-E3DB-B24DA12E6491"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

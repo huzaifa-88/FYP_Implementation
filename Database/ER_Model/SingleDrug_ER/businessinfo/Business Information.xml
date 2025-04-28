@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="E5B9C0AA-DA0A-BC3D-A229-B7D5E8AB7469">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:54:05 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

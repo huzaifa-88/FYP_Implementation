@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C3ACF54C-8AE2-D396-30F5-4CB18A0249CE" name="Root_Components">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:54:44 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Root_ComID" id="FD3BB5B2-90FD-449E-D992-AB48025293DA">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:03:29 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Root_ComName" id="50ADDEDC-4F84-E3A6-B0ED-B41F61473B16">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:03:29 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Source_SourceID" id="B307AE29-EE2E-CFB5-CF3E-461601707AFE">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:09:35 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A3321424-A00F-7F9D-F019-2513CCB0CAD8" referredColumn="1F0EE8C0-4FCE-044E-473C-32EA974BFABA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="17C40506-A949-2296-C6A4-9181D9BE0754" name="Root_Components_PK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:03:29 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FD3BB5B2-90FD-449E-D992-AB48025293DA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AF723734-F2E1-FF21-2FCA-22A75CB3C458" name="RootComponents_Source_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:09:35 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B307AE29-EE2E-CFB5-CF3E-461601707AFE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

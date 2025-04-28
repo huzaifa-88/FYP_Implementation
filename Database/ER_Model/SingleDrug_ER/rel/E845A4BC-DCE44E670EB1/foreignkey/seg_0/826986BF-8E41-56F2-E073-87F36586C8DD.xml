@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="826986BF-8E41-56F2-E073-87F36586C8DD" containerWithKeyObject="EBC01DB8-D9A4-FE6D-A89F-BC688469A617" localFKIndex="364909C7-817E-076A-DD47-14C9542E24F5" name="SingleDrugFormulations_Temparament_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 17:10:59 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<referredTableLongName>Temparament</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B3CB7B42-D5A0-0065-40F1-139C573221FF</referredTableID>
+<keyObject>92F5CC52-BB27-EE46-8DC6-FFE200E457D3</keyObject>
+<referredKeyID>92F5CC52-BB27-EE46-8DC6-FFE200E457D3</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>TemperamentID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

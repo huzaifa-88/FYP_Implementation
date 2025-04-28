@@ -1,0 +1,172 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E6842D7B-29CF-05F0-AD88-1FEAA0CE695B" name="CompoundDrugFormulation">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 11:51:17 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CompoundDrugID" id="466B56C2-1F9B-48F9-DB29-443E8B4F9DA0">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 11:52:29 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description" id="D3B963D4-B6CF-B7D3-C363-4F2D13DEB018">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 11:58:27 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ChiefIngredient" id="154E6A2D-D0B6-6A06-A668-624E73871DC3">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 11:58:27 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DoseQuantityID" id="42FB4765-1BC4-BB9D-CEB5-4529CC4F2A7B">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:06:37 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A4E5BA9A-2D91-D042-5097-A933075B17ED" referredColumn="5BADD319-1CAD-A416-8D3B-1559AD27114E"/>
+</associations>
+</Column>
+<Column name="Preparation" id="5E9251D2-9223-892A-4C63-A1D205487A6B">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 11:58:27 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ActionID" id="1BBED109-75B4-71E1-2A7B-758EF8438ADA">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 11:59:49 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5C1DCF4F-A22F-A30D-D115-CD5271BC2C39" referredColumn="F1C21D6C-EAC7-0323-7C70-3ACA508F23FE"/>
+</associations>
+</Column>
+<Column name="UsesID" id="8679537A-55B2-C8B0-1D39-1E40B140D8B6">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:00:14 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C7433262-25B6-58F6-3146-54B19959FAC4" referredColumn="C480BBDE-F504-D0B8-A746-DD810D8F174B"/>
+</associations>
+</Column>
+<Column name="SingleDrugFormulations_ID" id="A030BA67-BFF6-9C9D-6D1E-A7AE53C9F2C5">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:05:53 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B8507FF3-4E2D-7961-4B9C-299428961120" referredColumn="0A31F1CE-B083-E684-2560-B9310186E08A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="068D2E63-8BDC-4CE3-309B-BA0449DD48FA" name="CompoundDrugFormulation_PK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 11:52:29 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="466B56C2-1F9B-48F9-DB29-443E8B4F9DA0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EC683A98-7E62-AE8E-EDA0-43C6AAC4F49A" name="CompoundDrugFormulation_Actions_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 11:59:49 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1BBED109-75B4-71E1-2A7B-758EF8438ADA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C3C1D917-33B7-C58B-E167-CF61C5E2B055" name="CompoundDrugFormulation_Uses_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:00:14 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8679537A-55B2-C8B0-1D39-1E40B140D8B6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="89CA292A-B56C-2D50-32DB-C18C18BB984F" name="CompoundDrugFormulation_SingleDrugFormulations_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:05:53 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A030BA67-BFF6-9C9D-6D1E-A7AE53C9F2C5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DDAEAC0D-5C07-8CA2-0780-F78C92B5E648" name="CompoundDrugFormulation_DoseQuantity_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 12:06:37 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="42FB4765-1BC4-BB9D-CEB5-4529CC4F2A7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

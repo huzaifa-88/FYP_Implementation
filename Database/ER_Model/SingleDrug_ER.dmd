@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="SingleDrug_ER" id="E1A7AD8E-85F8-F383-98FA-1ACCC60085EE" version="3.5">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-20 16:54:04 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>E1A7AD8E-85F8-F383-98FA-1ACCC60085EE</designId>
+</OSDM_Design>

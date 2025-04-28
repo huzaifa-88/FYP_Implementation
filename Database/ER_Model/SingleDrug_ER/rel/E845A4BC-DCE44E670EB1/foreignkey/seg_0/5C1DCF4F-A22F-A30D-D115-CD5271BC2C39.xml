@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5C1DCF4F-A22F-A30D-D115-CD5271BC2C39" containerWithKeyObject="E6842D7B-29CF-05F0-AD88-1FEAA0CE695B" localFKIndex="EC683A98-7E62-AE8E-EDA0-43C6AAC4F49A" name="CompoundDrugFormulation_Actions_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2024-12-30 11:59:49 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<referredTableLongName>Actions</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>99160DF4-225F-ABBC-ABB7-45FBE55BA7E2</referredTableID>
+<keyObject>9F71A770-3CA1-426B-F19D-3B74A31F7C4E</keyObject>
+<referredKeyID>9F71A770-3CA1-426B-F19D-3B74A31F7C4E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ActionID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
