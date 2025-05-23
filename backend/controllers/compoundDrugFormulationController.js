@@ -1,5 +1,9 @@
 const pool = require('../utils/db'); // assuming you have a db.js for your DB connection
 const sql = require('mssql');  // This should be at the top of your file
+const { parseSteps } = require('../middleware/parser'); // adjust path if needed
+const { parseUsesActions } = require('../middleware/parseUsesActions');
+const { parseCommas } = require('../middleware/parseCommas');
+const { cleanResponseObject } = require('../utils/cleanTextFields');
 
 // Add a new compound drug formulation
 async function addCompoundDrugFormulation(req, res) {
@@ -51,47 +55,108 @@ async function getAllCompoundDrugFormulations(req, res) {
   }
 }
 
-// // Get a compound drug formulation by ID
 async function getCompoundDrugFormulationById(req, res) {
   try {
-    const { id } = req.params;  // Ensure you're passing the ID in the request params
-    const query = 'SELECT * FROM compounddrugformulation WHERE compounddrugid = @id';
+    const { id } = req.params;
 
-    // Ensure pool is correctly connected and the `sql` object is available
+    const query = `
+      SELECT 
+        c.compounddrugid,
+        c.compounddrugname,
+        c.description,
+        c.chiefingredient,
+        c.Ingredients,
+        c.preparation,
+        a.actionname AS action,
+        u.usesdescription AS uses,
+        d.dose AS dose_quantity,
+        b.bookname AS book_reference,
+        us.email AS username
+      FROM compounddrugformulation c
+      LEFT JOIN action a ON c.actionid = a.actionid
+      LEFT JOIN uses u ON c.usesid = u.usesid
+      LEFT JOIN dosequantity d ON c.dosequantityid = d.dosequantityid
+      LEFT JOIN bookreference b ON c.bookreference_id = b.bookreference_id
+      LEFT JOIN users us ON c.userid = us.userid
+      WHERE c.compounddrugid = @id
+    `;
+
     const poolConnection = await pool.connect();
-
-    // Input method should be called like this
     const result = await poolConnection.request()
-      .input('id', sql.Int, id)  // Correct input format: 'id', sql.Int, id
+      .input('id', sql.Int, id)
       .query(query);
-
     poolConnection.release();
 
     if (result.recordset.length === 0) {
       return res.status(404).json({ error: 'Compound Drug Formulation not found' });
     }
 
-    res.status(200).json(result.recordset[0]);
+    const record = result.recordset[0];
+
+    // Parse the preparation instructions
+    record.preparation_steps = parseSteps(record.preparation);
+    record.ingredients = parseUsesActions(record.Ingredients);
+    record.actions_list = parseCommas(record.action);
+    record.uses_list = parseCommas(record.uses);
+
+    const cleanRecord = cleanResponseObject(record);
+
+    res.status(200).json(cleanRecord);
   } catch (err) {
     console.error('Error retrieving compound drug formulation by ID:', err);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }
 
+
+// // Get a compound drug formulation by ID and Without Parser, I was using this function before
 // async function getCompoundDrugFormulationById(req, res) {
 //   try {
-//     const { id } = req.params;
+//     const { id } = req.params;  // Ensure you're passing the ID in the request params
+//     const query = 
+//     `SELECT 
+//         c.compounddrugid,
+//         c.compounddrugname,
+//         c.description,
+//         c.chiefingredient,
+//         c.Ingredients,
+//         c.preparation,
+        
+//         a.actionname AS action,
+//         u.usesdescription AS uses,
+//         d.dose AS dose_quantity,
+//         b.bookname AS book_reference,
+//         us.email AS username
 
-//     const query = 'SELECT * FROM compounddrugformulation WHERE compounddrugid = @id';
+//         FROM 
+//             compounddrugformulation c
+//         LEFT JOIN 
+//             action a ON c.actionid = a.actionid
+//         LEFT JOIN 
+//             uses u ON c.usesid = u.usesid
+//         LEFT JOIN 
+//             dosequantity d ON c.dosequantityid = d.dosequantityid
+//         LEFT JOIN 
+//             bookreference b ON c.bookreference_id = b.bookreference_id
+//         LEFT JOIN 
+//             users us ON c.userid = us.userid
+
+//         WHERE 
+//             c.compounddrugid = @id
+//         `;
+
+//     // Ensure pool is correctly connected and the `sql` object is available
 //     const poolConnection = await pool.connect();
+
+//     // Input method should be called like this
 //     const result = await poolConnection.request()
-//       .input('id', pool.Int, id)
+//       .input('id', sql.Int, id)  // Correct input format: 'id', sql.Int, id
 //       .query(query);
-    
+
 //     poolConnection.release();
 
 //     if (result.recordset.length === 0) {
-//       return res.status(404).json({ error: 'Compound drug formulation not found' });
+//       return res.status(404).json({ error: 'Compound Drug Formulation not found' });
 //     }
 
 //     res.status(200).json(result.recordset[0]);
@@ -100,6 +165,7 @@ async function getCompoundDrugFormulationById(req, res) {
 //     res.status(500).json({ error: 'Internal Server Error' });
 //   }
 // }
+
 
 // Update a compound drug formulation
 async function updateCompoundDrugFormulation(req, res) {

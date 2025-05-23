@@ -31,16 +31,16 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="SourceType" id="1B1F54B2-CDB1-B7D7-2158-DF1C1242F253">
+<Column name="SourceName_URDU" id="1D2C08EC-A515-99AB-293F-CA56C058D0E9">
 <createdBy>PMYLS</createdBy>
-<createdTime>2024-12-20 17:07:03 UTC</createdTime>
+<createdTime>2025-05-01 15:09:00 UTC</createdTime>
 <ownerDesignName>SingleDrug_ER</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

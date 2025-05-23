@@ -16,24 +16,6 @@ const Config = {
     port:1433
   };
 
-// const config = {
-//     server: 'HUZAIFA-PC\\SQLEXPRESS',
-//     database: 'KBS_Unani', // Replace with your DB name
-//     options: {
-//         trustedConnection: true,
-//         trustServerCertificate: true,
-//         connectTimeout: 30000
-//     },
-//     authentication: {
-//         type: 'ntlm',
-//         options: {
-//             domain: 'HUZAIFA-PC',
-//             userName: 'PMYLS',
-//             password: '', // Leave empty for Windows Auth
-//         }
-//     }
-// };
-
 const pool = new sql.ConnectionPool(Config);
 
 pool.connect()

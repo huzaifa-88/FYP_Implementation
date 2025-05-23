@@ -19,6 +19,18 @@
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="CompoundDrugName" id="894AD70C-E52F-A988-019F-F4C33DCD49F3">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-04-30 14:32:10 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="Description" id="D3B963D4-B6CF-B7D3-C363-4F2D13DEB018">
 <createdBy>PMYLS</createdBy>
 <createdTime>2024-12-30 11:58:27 UTC</createdTime>
@@ -27,6 +39,18 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description_URDU" id="51665F93-306C-CD37-B044-2D7CC857FC30">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 15:10:34 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
 <dataTypeSize>100</dataTypeSize>
 <ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -41,6 +65,18 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>50</dataTypeSize>
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ChiefIngredient_URDU" id="1E69ABAE-FBD0-B7AD-36BE-B5E57D40AD53">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 15:10:03 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="DoseQuantityID" id="42FB4765-1BC4-BB9D-CEB5-4529CC4F2A7B">
@@ -66,6 +102,18 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Preparation_URDU" id="9606E6BE-053F-4D2B-E887-1413ED7981EB">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 15:10:03 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
 <dataTypeSize>100</dataTypeSize>
 <ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -113,6 +161,21 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="B8507FF3-4E2D-7961-4B9C-299428961120" referredColumn="0A31F1CE-B083-E684-2560-B9310186E08A"/>
+</associations>
+</Column>
+<Column name="BookReference_ID" id="B06358E3-0580-FF07-699D-9DD32C508C51">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-04-30 13:57:14 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="34B21699-7EAA-FE01-EA85-27EA11D0CB1C" referredColumn="155CC85C-DF98-522A-2958-C1A15ACBB43D"/>
 </associations>
 </Column>
 </columns>
@@ -166,6 +229,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="42FB4765-1BC4-BB9D-CEB5-4529CC4F2A7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C2CA42DA-D2DF-3D20-D84D-4B678ED8B32C" name="CompoundDrugFormulation_BookReference_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-04-30 13:57:14 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B06358E3-0580-FF07-699D-9DD32C508C51"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

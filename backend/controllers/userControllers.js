@@ -1,32 +1,63 @@
-  const sql = require('mssql');
+const sql = require('mssql');
 const pool = require('../utils/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const generateToken = require('../utils/generateToken');
 
-
-
-
 // Controller for creating a new user
-const createUser = async (req, res) => {
+async function createUser(req, res) {
   try {
-    const { username, password, email, role } = req.body;
-    
-    // Create a new user using the model
-    const newUser = await User.create({
-      username,
-      password,
-      email,
-      role
-    });
-    
-    // Respond with the newly created user
-    res.status(201).json({ message: 'User created successfully', user: newUser });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Failed to create user', error: error.message });
+    const { firstname, lastname, email, password, city, country, postalCode, role } = req.body;
+
+    if (!firstname || !lastname || !email || !password) {
+      return res.status(400).json({ message: 'Firstname, lastname, email, and password are required.' });
+    }
+
+    const userRole = role || 'General User';
+
+    const connection = await pool.connect();
+
+    // Check if user with the same email already exists
+    const result = await connection.request()
+      .input('email', sql.VarChar(500), email)
+      .query(`SELECT * FROM users WHERE email = @email`);
+
+    if (result.recordset.length > 0) {
+      connection.release();
+      return res.status(409).json({ message: 'A user with this email already exists.' });
+    }
+
+    // Hash the password
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    // Insert the new user with hashed password
+    await connection.request()
+      .input('firstname', sql.VarChar(500), firstname)
+      .input('lastname', sql.VarChar(500), lastname)
+      .input('email', sql.VarChar(500), email)
+      .input('password', sql.VarChar(500), hashedPassword)
+      .input('role', sql.VarChar(500), userRole)
+      .input('city', sql.VarChar(500), city || null)
+      .input('country', sql.VarChar(500), country || null)
+      .input('postalCode', sql.VarChar(500), postalCode || null)
+      .query(`
+        INSERT INTO users (
+          firstname, lastname, email, password, UserRole, city, country, postalCode
+        )
+        VALUES (
+          @firstname, @lastname, @email, @password, @role, @city, @country, @postalCode
+        )
+      `);
+
+    connection.release();
+    res.status(201).json({ message: 'User created successfully' });
+  } catch (err) {
+    console.error('Error creating user:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
-};
+}
+
 
 // Login Controller
 // Function to find user by email
@@ -54,7 +85,10 @@ async function loginUser(req, res) {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    if (password !== user.password) {
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordMatch) {
+      console.log("IsPasswordMatch:", isPasswordMatch);
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
@@ -62,13 +96,17 @@ async function loginUser(req, res) {
 
     res.status(200).json({ 
       message: 'Login successful', 
-      token: token 
+      token: token,
+      userRole: user.UserRole
     });
   } catch (err) {
-    console.log("Error here.......");
-    res.status(500).json({ error: `Internal Server Error ${err}` });
+    console.error('Error during login:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 }
+
+// module.exports = loginUser;
+
 
 
 // Without Token Implement

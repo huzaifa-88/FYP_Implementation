@@ -31,19 +31,43 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="VernacularNames" id="FCB299EE-3DDE-F2BD-1AD4-4E64FC0CCEB2">
+<Column name="OrginalName_URDU" id="A5B58F1F-2E53-4461-56C9-2684CBE282F6">
 <createdBy>PMYLS</createdBy>
-<createdTime>2024-12-20 16:59:11 UTC</createdTime>
+<createdTime>2025-05-01 15:08:13 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BotanicalName" id="D1A9AEE3-51F9-DBB6-ADF3-539BC0AB381E">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 08:59:40 UTC</createdTime>
 <ownerDesignName>SingleDrug_ER</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Temparament_TemperamentID" id="48E9BA3E-72CD-DB7A-B6A5-28B9CC35B8C2">
+<Column name="BotanicalName_URDU" id="9713DD77-EF75-6528-A1E1-2D25C0C2EF9A">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 09:04:55 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TemperamentID" id="48E9BA3E-72CD-DB7A-B6A5-28B9CC35B8C2">
 <createdBy>PMYLS</createdBy>
 <createdTime>2024-12-20 17:10:59 UTC</createdTime>
 <ownerDesignName>SingleDrug_ER</ownerDesignName>
@@ -58,9 +82,9 @@
 <colAssociation fkAssociation="826986BF-8E41-56F2-E073-87F36586C8DD" referredColumn="528FF0F1-C1DA-3E04-AD16-558FCE95B414"/>
 </associations>
 </Column>
-<Column name="Uses_UsesID" id="F24CCA83-4E3F-F90A-AB64-0C2DAFBAEF68">
+<Column name="SourceID" id="69F159C3-5AAD-B628-5091-74FDFACCBF43">
 <createdBy>PMYLS</createdBy>
-<createdTime>2024-12-20 17:11:27 UTC</createdTime>
+<createdTime>2025-05-01 08:47:09 UTC</createdTime>
 <ownerDesignName>SingleDrug_ER</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -70,10 +94,10 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="F791B52D-88EB-EE30-7203-4F540EA4E97A" referredColumn="C480BBDE-F504-D0B8-A746-DD810D8F174B"/>
+<colAssociation fkAssociation="C0A64B62-2FA4-CA6C-2271-8A6BF455E352" referredColumn="1F0EE8C0-4FCE-044E-473C-32EA974BFABA"/>
 </associations>
 </Column>
-<Column name="Actions_ActionID" id="45E57493-CC8D-55EF-31A0-A5CAA487660D">
+<Column name="ActionID" id="45E57493-CC8D-55EF-31A0-A5CAA487660D">
 <createdBy>PMYLS</createdBy>
 <createdTime>2024-12-20 17:11:38 UTC</createdTime>
 <ownerDesignName>SingleDrug_ER</ownerDesignName>
@@ -88,9 +112,9 @@
 <colAssociation fkAssociation="0E8BA6E5-AE8A-D650-EC21-909BA5721C8D" referredColumn="F1C21D6C-EAC7-0323-7C70-3ACA508F23FE"/>
 </associations>
 </Column>
-<Column name="Root_Components_Root_ComID" id="B0181054-9679-476C-01A0-FC6830FCFC41">
+<Column name="UsesID" id="F24CCA83-4E3F-F90A-AB64-0C2DAFBAEF68">
 <createdBy>PMYLS</createdBy>
-<createdTime>2024-12-20 17:11:52 UTC</createdTime>
+<createdTime>2024-12-20 17:11:27 UTC</createdTime>
 <ownerDesignName>SingleDrug_ER</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -100,12 +124,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="09E71BC6-5747-38A4-12D9-CAD7D827609A" referredColumn="FD3BB5B2-90FD-449E-D992-AB48025293DA"/>
+<colAssociation fkAssociation="F791B52D-88EB-EE30-7203-4F540EA4E97A" referredColumn="C480BBDE-F504-D0B8-A746-DD810D8F174B"/>
 </associations>
 </Column>
-<Column name="TotalAvailableConstituents_ConstituentID" id="BE0904EB-1662-F93D-8A53-4762298CF7D4">
+<Column name="BookReference_ID" id="30EE3323-16A4-8837-0561-08D0045DFB44">
 <createdBy>PMYLS</createdBy>
-<createdTime>2024-12-20 17:15:30 UTC</createdTime>
+<createdTime>2025-04-30 13:56:59 UTC</createdTime>
 <ownerDesignName>SingleDrug_ER</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -115,7 +139,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="0613A404-8F15-697B-F974-D3BA7EF02728" referredColumn="B94876DB-E93F-6FC0-E3DB-B24DA12E6491"/>
+<colAssociation fkAssociation="EA9679DC-932E-F3CF-C9F1-DD187A07D06D" referredColumn="155CC85C-DF98-522A-2958-C1A15ACBB43D"/>
 </associations>
 </Column>
 </columns>
@@ -161,24 +185,24 @@
 <colUsage columnID="45E57493-CC8D-55EF-31A0-A5CAA487660D"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="7E09990A-EC00-5FBB-5093-B2125E5B30B5" name="SingleDrugFormulations_RootComponents_FK">
+<ind_PK_UK id="D45BFCB2-0E3A-01C2-B75B-8FC7924D451B" name="SingleDrugFormulations_BookReference_FK">
 <createdBy>PMYLS</createdBy>
-<createdTime>2024-12-20 17:11:52 UTC</createdTime>
+<createdTime>2025-04-30 13:56:59 UTC</createdTime>
 <ownerDesignName>SingleDrug_ER</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="B0181054-9679-476C-01A0-FC6830FCFC41"/>
+<colUsage columnID="30EE3323-16A4-8837-0561-08D0045DFB44"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B339C490-1487-90B4-9BC6-47B607CD7A9C" name="SingleDrugFormulations_TotalAvailableConstituents_FK">
+<ind_PK_UK id="1678E608-8427-E076-DCCA-82147E17B091" name="SingleDrugFormulations_Source_FK">
 <createdBy>PMYLS</createdBy>
-<createdTime>2024-12-20 17:15:30 UTC</createdTime>
+<createdTime>2025-05-01 08:47:09 UTC</createdTime>
 <ownerDesignName>SingleDrug_ER</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="BE0904EB-1662-F93D-8A53-4762298CF7D4"/>
+<colUsage columnID="69F159C3-5AAD-B628-5091-74FDFACCBF43"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

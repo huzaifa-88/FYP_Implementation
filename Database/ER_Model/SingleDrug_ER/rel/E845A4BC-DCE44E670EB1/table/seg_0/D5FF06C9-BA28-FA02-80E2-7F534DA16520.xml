@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D5FF06C9-BA28-FA02-80E2-7F534DA16520" name="VernacularNames">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 09:05:15 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<ordsAlias>table_12</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="VernacularName_ID" id="8C1CA92A-BB9A-60B7-FB8B-7FA1E45693A1">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 09:13:43 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DrugID" id="0AA6BA19-B0E4-5A93-B9E3-C3C0D1CB484B">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 09:49:30 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ED39FD62-0F51-5338-6849-7ADB40520B47" referredColumn="0A31F1CE-B083-E684-2560-B9310186E08A"/>
+</associations>
+</Column>
+<Column name="Name" id="F6D1E264-9AF7-A1EB-BEB0-25D1478AEB1C">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 09:49:12 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Language" id="F37A129C-EF80-1E31-BB8D-B6E325952194">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 09:49:12 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6D0D7124-6E31-A2ED-E1E1-7AAFE138C553" name="VernacularNames_PK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 09:13:43 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8C1CA92A-BB9A-60B7-FB8B-7FA1E45693A1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1CECFEC3-E215-9310-6041-FB6B9E9E1CBA" name="VernacularNames_SingleDrugFormulations_FK">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 09:49:30 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0AA6BA19-B0E4-5A93-B9E3-C3C0D1CB484B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

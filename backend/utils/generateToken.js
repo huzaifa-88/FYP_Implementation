@@ -8,7 +8,8 @@ function generateToken(user) {
     userid: user.userid,
     email: user.email,
     firstname: user.firstname,
-    lastname: user.lastname
+    lastname: user.lastname,
+    role: user.UserRole
   };
 
   return jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' }); // Token expires in 1 hour

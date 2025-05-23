@@ -31,6 +31,18 @@
 <ownDataTypeParameters>200,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="UsesDescription_URDU" id="A9CD75B9-E18A-BD07-5FD9-5C4AC201CE1C">
+<createdBy>PMYLS</createdBy>
+<createdTime>2025-05-01 15:07:39 UTC</createdTime>
+<ownerDesignName>SingleDrug_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="26B0750F-263B-115D-E848-05C9731253FC" name="Uses_PK">
