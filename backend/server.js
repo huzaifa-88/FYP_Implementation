@@ -53,7 +53,8 @@ const compoundDrugFormulationRoutes = require('./routes/compoundDrugFormulationR
 const singleDrugFormulationRoutes = require('./routes/singleDrugFormulationRoutes');
 const bookReferenceRoutes = require('./routes/bookReferenceRoutes');
 const createAdminUser = require('./utils/initAdmin');
-const practitioner_applications = require('./routes/practitionerRoutes')
+const practitioner_applications = require('./routes/practitionerRoutes');
+const chatRoutes = require('./routes/chatRoutes')
 
 
 const app = express();
@@ -82,6 +83,7 @@ app.use('/api', compoundDrugFormulationRoutes);
 app.use('/api', singleDrugFormulationRoutes);
 app.use('/api', bookReferenceRoutes);
 app.use('/api', practitioner_applications);
+app.use('/api', chatRoutes);
 // Test route with DB query
 app.get('/users', async (req, res) => {
     try {

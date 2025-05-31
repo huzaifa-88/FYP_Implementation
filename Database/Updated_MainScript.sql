@@ -26,14 +26,27 @@ CREATE TABLE users (
 );
 GO
 
-CREATE TABLE practitioner_applications (
-  id INT PRIMARY KEY IDENTITY(1,1),
-  userid INT NOT NULL UNIQUE,  -- Link to users table
-  registration_number VARCHAR(100) NULL,
-  status VARCHAR(20) DEFAULT 'Pending', -- 'Pending', 'Approved', 'Rejected'
-  application_date DATETIME DEFAULT GETDATE(),
-  FOREIGN KEY (userid) REFERENCES users(userid)
+-- Threads Table
+CREATE TABLE threads (
+  thread_id INT IDENTITY(1,1) PRIMARY KEY,
+  userid INT NOT NULL,
+  created_at DATETIME DEFAULT GETDATE(),
+  FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
 );
+
+
+-- UserCHAT Table
+CREATE TABLE UserCHAT (
+  chat_id INT IDENTITY(1,1) PRIMARY KEY,
+  thread_id INT NOT NULL,
+  userid INT NOT NULL,
+  message TEXT,
+  is_bot BIT DEFAULT 0,
+  created_at DATETIME DEFAULT GETDATE(),
+  FOREIGN KEY (thread_id) REFERENCES threads(thread_id) ON DELETE CASCADE,
+  FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE NO ACTION
+);
+
 
 -- Create tables
 CREATE TABLE action (
