@@ -12,7 +12,6 @@ async function createUser(req, res) {
     if (!firstname || !lastname || !email || !password) {
       return res.status(400).json({ message: 'Firstname, lastname, email, and password are required.' });
     }
-
     const userRole = role || 'General User';
 
     const connection = await pool.connect();
@@ -105,112 +104,187 @@ async function loginUser(req, res) {
   }
 }
 
-// module.exports = loginUser;
-
-
-
-// Without Token Implement
-// async function loginUser(req, res) {
-//   try {
-//     const { email, password } = req.body;
-    
-//     // Find the user by email
-//     const user = await findUserByEmail(email);
-
-//     if (!user) {
-//       return res.status(404).json({ error: 'User not found' });
-//     }
-
-//     // Compare the password directly since it's stored as plain text
-//     if (password !== user.password) {
-//       return res.status(401).json({ error: 'Invalid credentials' });
-//     }
-
-//     // Generate a token for the user
-//     // const token = generateToken(user);
-
-//     // Respond with success message and token
-//     res.status(200).json({ message: 'Login successful'});
-//   } catch (err) {
-//     res.status(500).json({ error: `Internal Server Error ${err.message}` });
-//   }
-// }
-
 // Controller for getting all users
 const getUsers = async (req, res) => {
   try {
-    const users = await User.findAll(); // Get all users from the database
-    res.status(200).json(users); // Return all users
+    const request = await pool.request();
+    const result = await request.query('SELECT * FROM users'); // Get all users
+
+    res.status(200).json(result.recordset); // Send all users as JSON
   } catch (error) {
-    console.error(error);
+    console.error('Error fetching users:', error);
     res.status(500).json({ message: 'Failed to get users', error: error.message });
   }
 };
 
-// Controller for getting a single user by ID
-const getUserById = async (req, res) => {
+
+
+// GET /api/users/checkPractitioner/:userid
+const checkPractitioner = async (req, res) => {
+  const userid = req.params.userid;
   try {
-    const userId = req.params.id;
-    
-    const user = await User.findByPk(userId); // Find user by primary key (userid)
-    
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-    
-    res.status(200).json(user); // Return the user details
+    const request = await pool.request();
+    const result = await request
+      .input('userid', sql.Int, userid)
+      .query('SELECT COUNT(*) AS count FROM practitioner_applications WHERE userid = @userid');
+
+    res.json({ isPractitioner: result.recordset[0].count > 0 });
   } catch (error) {
     console.error(error);
+    res.status(500).json({ message: 'Failed to check practitioner status', error: error.message });
+  }
+};
+
+// DELETE /api/practitioner_applications/deleteByUser/:userid
+const deletePractitionerApplicationsByUser = async (req, res) => {
+  const userid = req.params.userid;
+  try {
+    await pool.request()
+      .input('userid', sql.Int, userid)
+      .query('DELETE FROM practitioner_applications WHERE userid = @userid');
+
+    res.json({ message: 'Practitioner applications deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to delete practitioner applications', error: error.message });
+  }
+};
+
+
+
+// Controller for getting a single user by ID
+const getUserById = async (req, res) => {
+  const userId = req.params.userid;
+
+  try {
+    const request = await pool.request(); // Use the imported pool directly
+    const result = await request
+      .input('userid', sql.Int, userId)
+      .query('SELECT * FROM users WHERE userid = @userid');
+
+    if (result.recordset.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json(result.recordset[0]);
+  } catch (error) {
+    console.error('Error fetching user:', error);
     res.status(500).json({ message: 'Failed to get user', error: error.message });
   }
 };
 
+
 // Controller for updating a user's details
 const updateUser = async (req, res) => {
   try {
-    const userId = req.params.id;
-    const { username, password, email, role } = req.body;
+    const userId = req.params.userid;
+    const { firstname, lastname, email, password, UserRole, city, country, postalCode } = req.body;
 
-    const user = await User.findByPk(userId);
-    
-    if (!user) {
+    // Fetch existing user first
+    const request = await pool.request();
+    const existingUserResult = await request
+      .input('userid', sql.Int, userId)
+      .query('SELECT * FROM users WHERE userid = @userid');
+
+    if (existingUserResult.recordset.length === 0) {
       return res.status(404).json({ message: 'User not found' });
     }
-    
-    // Update the user details
-    await user.update({
-      username,
-      password,
-      email,
-      role
-    });
 
-    res.status(200).json({ message: 'User updated successfully', user });
+    const existingUser = existingUserResult.recordset[0];
+
+    // Merge existing values with incoming (keep old if not provided)
+    const updatedFirstname = firstname || existingUser.firstname;
+    const updatedLastname = lastname || existingUser.lastname;
+    const updatedEmail = email || existingUser.email;
+    const updatedUserRole = UserRole || existingUser.UserRole;
+    const updatedCity = city || existingUser.city;
+    const updatedCountry = country || existingUser.country;
+    const updatedPostalCode = postalCode || existingUser.postalCode;
+
+    // Hash password only if provided, else keep existing
+    let updatedPassword = existingUser.password;
+    if (password) {
+      updatedPassword = await bcrypt.hash(password, 10);
+    }
+
+    // Prepare update query
+    const updateQuery = `
+      UPDATE users
+      SET
+        firstname = @firstname,
+        lastname = @lastname,
+        email = @email,
+        password = @password,
+        UserRole = @UserRole,
+        city = @city,
+        country = @country,
+        postalCode = @postalCode
+      WHERE userid = @userid
+    `;
+
+    const updateRequest = await pool.request()
+      .input('firstname', sql.VarChar(500), updatedFirstname)
+      .input('lastname', sql.VarChar(500), updatedLastname)
+      .input('email', sql.VarChar(500), updatedEmail)
+      .input('password', sql.VarChar(500), updatedPassword)
+      .input('UserRole', sql.VarChar(500), updatedUserRole)
+      .input('city', sql.VarChar(500), updatedCity)
+      .input('country', sql.VarChar(500), updatedCountry)
+      .input('postalCode', sql.VarChar(500), updatedPostalCode)
+      .input('userid', sql.Int, userId);
+
+    await updateRequest.query(updateQuery);
+
+    res.status(200).json({ message: 'User updated successfully' });
   } catch (error) {
-    console.error(error);
+    console.error('Error updating user:', error);
     res.status(500).json({ message: 'Failed to update user', error: error.message });
   }
 };
 
-// Controller for deleting a user
+
+// DELETE /api/users/deleteUserByID/:userid
 const deleteUser = async (req, res) => {
+  const userid = req.params.userid;
   try {
-    const userId = req.params.id;
-
-    const user = await User.findByPk(userId);
-
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    await user.destroy(); // Delete the user
-
-    res.status(200).json({ message: 'User deleted successfully' });
+    await pool.request()
+      .input('userid', sql.Int, userid)
+      .query('DELETE FROM users WHERE userid = @userid');
+    res.json({ message: 'User deleted successfully' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Failed to delete user', error: error.message });
   }
 };
+
+
+// Controller for deleting a user
+// const deleteUser = async (req, res) => {
+//   try {
+//     const userId = req.params.userid;
+
+//     const request = await pool.request();
+
+//     // Check if user exists
+//     const userCheck = await request
+//       .input('userid', sql.Int, userId)
+//       .query('SELECT * FROM users WHERE userid = @userid');
+
+//     if (userCheck.recordset.length === 0) {
+//       return res.status(404).json({ message: 'User not found' });
+//     }
+
+//     // Delete the user
+//     await pool.request()
+//       .input('userid', sql.Int, userId)
+//       .query('DELETE FROM users WHERE userid = @userid');
+
+//     res.status(200).json({ message: 'User deleted successfully' });
+//   } catch (error) {
+//     console.error('Error deleting user:', error);
+//     res.status(500).json({ message: 'Failed to delete user', error: error.message });
+//   }
+// };
 
 
 // Exporting the controller functions
@@ -220,5 +294,7 @@ module.exports = {
   getUsers,
   getUserById,
   updateUser,
-  deleteUser
+  deleteUser,
+  checkPractitioner,
+  deletePractitionerApplicationsByUser
 };

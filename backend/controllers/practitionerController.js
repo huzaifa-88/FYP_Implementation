@@ -8,7 +8,7 @@ exports.apply = async (req, res) => {
     firstname,
     lastname,
     email,
-    password,
+    password, // Will only use this if creating a new user
     city,
     country,
     postalCode,
@@ -27,7 +27,7 @@ exports.apply = async (req, res) => {
     let userId;
 
     if (userResult.recordset.length > 0) {
-      // User already exists
+      // ✅ Existing user
       userId = userResult.recordset[0].userid;
 
       // Check if already applied
@@ -39,14 +39,13 @@ exports.apply = async (req, res) => {
         return res.status(400).json({ message: 'Application already submitted.' });
       }
     } else {
-      // New user — validate required fields
-      if (!firstname || !lastname || !email || !password || !role) {
+      // ✅ New user — must validate and hash password
+      if (!firstname || !lastname || !email || !password || !role || !registration_number) {
         return res.status(400).json({ message: 'Required user fields missing.' });
       }
 
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      // Insert user
       const insertUserResult = await pool.request()
         .input('firstname', sql.VarChar(500), firstname)
         .input('lastname', sql.VarChar(500), lastname)
@@ -65,7 +64,7 @@ exports.apply = async (req, res) => {
       userId = insertUserResult.recordset[0].userid;
     }
 
-    // Now insert into practitioner_applications
+    // Insert into practitioner_applications
     await pool.request()
       .input('userid', sql.Int, userId)
       .input('registration_number', sql.VarChar(100), registration_number || null)
@@ -79,7 +78,87 @@ exports.apply = async (req, res) => {
     console.error('Apply Error:', err);
     res.status(500).json({ message: 'Server error while submitting application.' });
   }
-}
+};
+
+
+
+// exports.apply = async (req, res) => {
+//   const {
+//     firstname,
+//     lastname,
+//     email,
+//     password,
+//     city,
+//     country,
+//     postalCode,
+//     role,
+//     registration_number
+//   } = req.body;
+
+//   try {
+//     const pool = await dbConfig.connect();
+
+//     // Check if user already exists
+//     const userResult = await pool.request()
+//       .input('email', sql.VarChar(500), email)
+//       .query('SELECT * FROM users WHERE email = @email');
+
+//     let userId;
+
+//     if (userResult.recordset.length > 0) {
+//       // User already exists
+//       userId = userResult.recordset[0].userid;
+
+//       // Check if already applied
+//       const existingApp = await pool.request()
+//         .input('userid', sql.Int, userId)
+//         .query('SELECT * FROM practitioner_applications WHERE userid = @userid');
+
+//       if (existingApp.recordset.length > 0) {
+//         return res.status(400).json({ message: 'Application already submitted.' });
+//       }
+//     } else {
+//       // New user — validate required fields
+//       if (!firstname || !lastname || !email || !password || !role || !registration_number) {
+//         return res.status(400).json({ message: 'Required user fields missing.' });
+//       }
+
+//       const hashedPassword = await bcrypt.hash(password, 10);
+
+//       // Insert user
+//       const insertUserResult = await pool.request()
+//         .input('firstname', sql.VarChar(500), firstname)
+//         .input('lastname', sql.VarChar(500), lastname)
+//         .input('email', sql.VarChar(500), email)
+//         .input('password', sql.VarChar(500), hashedPassword)
+//         .input('role', sql.VarChar(500), role)
+//         .input('city', sql.VarChar(500), city || null)
+//         .input('country', sql.VarChar(500), country || null)
+//         .input('postalCode', sql.VarChar(500), postalCode || null)
+//         .query(`
+//           INSERT INTO users (firstname, lastname, email, password, UserRole, city, country, postalCode)
+//           OUTPUT INSERTED.userid
+//           VALUES (@firstname, @lastname, @email, @password, @role, @city, @country, @postalCode)
+//         `);
+
+//       userId = insertUserResult.recordset[0].userid;
+//     }
+
+//     // Now insert into practitioner_applications
+//     await pool.request()
+//       .input('userid', sql.Int, userId)
+//       .input('registration_number', sql.VarChar(100), registration_number || null)
+//       .query(`
+//         INSERT INTO practitioner_applications (userid, registration_number)
+//         VALUES (@userid, @registration_number)
+//       `);
+
+//     res.status(201).json({ message: 'Application submitted successfully.' });
+//   } catch (err) {
+//     console.error('Apply Error:', err);
+//     res.status(500).json({ message: 'Server error while submitting application.' });
+//   }
+// }
 
 // Get all practitioner applications (admin use)
 exports.getAllApplications = async (req, res) => {
@@ -176,6 +255,7 @@ exports.getAllApplications = async (req, res) => {
 // Update application status (approve/reject)
 exports.updateStatus = async (req, res) => {
   const { id } = req.params;
+  console.log(id);
   const { status, registration_number } = req.body;
 
   if (!['Approved', 'Rejected'].includes(status)) {

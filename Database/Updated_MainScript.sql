@@ -28,12 +28,21 @@ GO
 
 -- Threads Table
 CREATE TABLE threads (
-  thread_id INT IDENTITY(1,1) PRIMARY KEY,
-  userid INT NOT NULL,
-  created_at DATETIME DEFAULT GETDATE(),
-  FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
+	thread_id INT IDENTITY(1,1) PRIMARY KEY,
+	userid INT NOT NULL,
+	created_at DATETIME DEFAULT GETDATE(),
+	FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
 );
 
+CREATE TABLE practitioner_applications (
+    application_id INT IDENTITY(1,1) PRIMARY KEY,
+    userid INT NOT NULL,
+    registration_number VARCHAR(50) NOT NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'Pending',
+    application_date DATETIME DEFAULT GETDATE(),
+
+    FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
+);
 
 -- UserCHAT Table
 CREATE TABLE UserCHAT (
@@ -89,7 +98,7 @@ CREATE TABLE singledrugformulations (
     botanicalname      VARCHAR(500),
     botanicalname_urdu NVARCHAR(500) NULL,
     vernacularname	   VARCHAR(500),
-    sourceid           INT,
+    sourceid		   INT,
 	constituents       NVARCHAR(500),
     actionid           INT,
     usesid             INT,
@@ -129,14 +138,4 @@ CREATE TABLE compounddrugformulation (
     FOREIGN KEY (bookreference_id) REFERENCES bookreference(bookreference_id),
 	FOREIGN KEY (userid) REFERENCES users(userid)  -- Foreign key reference
 );
-
-SELECT * FROM singledrugformulations
-select * from temperament
-select * from vernacularnames
-select * from uses
-select * from users
-select * from action
-select * from source
-select * from compounddrugformulation
-select * from dosequantity
 

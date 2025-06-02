@@ -9,5 +9,6 @@ router.get('/GetAll_SingleDrugFormulations', protect, singleDrugFormulationContr
 router.get('/GetSingleDrugFormulation/:id', protect, singleDrugFormulationController.getSingleDrugFormulationById);
 router.post('/Add_SingleDrugFormulation', protect, authorizeRoles('admin'), singleDrugFormulationController.addSingleDrugFormulation);
 router.delete('/Delete_SingleDrugFormulation/:id', protect, authorizeRoles('admin'), singleDrugFormulationController.deleteSingleDrugFormulation);
+router.put('/Update_SingleDrugFormulation/:id', protect, authorizeRoles('admin'), singleDrugFormulationController.updateSingleDrugFormulation);
 
 module.exports = router;
